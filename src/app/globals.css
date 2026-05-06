@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 15 30% 96%;
+    --foreground: 24 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+    --primary: 24 80% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 24 20% 90%;
+    --secondary-foreground: 24 80% 30%;
+    --muted: 24 10% 90%;
+    --muted-foreground: 24 10% 40%;
+    --accent: 355 87% 56%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 24 20% 85%;
+    --input: 24 20% 85%;
+    --ring: 24 80% 59%;
+    --radius: 0.75rem;
+  }
+  .dark {
+    --background: 24 10% 10%;
+    --foreground: 0 0% 98%;
+    --card: 24 10% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 24 10% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 24 80% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 24 10% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 24 10% 20%;
+    --muted-foreground: 24 10% 65%;
+    --accent: 355 87% 56%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 24 10% 20%;
+    --input: 24 10% 20%;
+    --ring: 24 80% 59%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+@media print {
+  @page {
+    margin: 1.5cm;
+    size: auto;
+  }
+
+  /* Hide all non-recipe UI chrome */
+  nav,
+  button,
+  input,
+  textarea,
+  .no-print,
+  .toaster,
+  [role="dialog"],
+  [role="alertdialog"],
+  .sticky {
+    display: none !important;
+  }
+
+  /* Reset layout for print */
+  html,
+  body {
+    display: block !important;
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: black !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  body > * {
+    display: block !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  /* The root layout wrappers */
+  .flex-1,
+  .flex-col,
+  [class*="min-h"] {
+    display: block !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  main,
+  div {
+    overflow: visible !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  /* Recipe card print styling */
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #eee !important;
+    break-inside: avoid;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 2rem 0 !important;
+    background: white !important;
+    page-break-after: always;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .card-header {
+    background: none !important;
+    border-bottom: 2px solid #f0f0f0 !important;
+    padding: 1rem 0 !important;
+  }
+
+  .card-title {
+    color: black !important;
+    font-size: 2rem !important;
+  }
+
+  .badge {
+    border: 1px solid #ccc !important;
+    background: #f9f9f9 !important;
+    color: #333 !important;
+    print-color-adjust: exact;
+  }
+
+  .text-muted-foreground {
+    color: #555 !important;
+  }
+
+  /* Force grid into blocks for print layout */
+  .grid {
+    display: block !important;
+  }
+
+  .md\:col-span-2,
+  .md\:col-span-3 {
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+  }
+
+  h3 {
+    border-bottom: 1px solid #eee !important;
+    margin-bottom: 1rem !important;
+  }
+
+  ul,
+  ol {
+    page-break-inside: auto;
+  }
+
+  li {
+    page-break-inside: avoid;
+    margin-bottom: 0.5rem !important;
+  }
+}

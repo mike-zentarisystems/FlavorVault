@@ -1,0 +1,10 @@
+{
+  "placeholderImages": [
+    {
+      "id": "chef-mikeo",
+      "description": "Chef Mikeo - Friendly cartoon chef mascot with a mustache and red shirt",
+      "imageUrl": "/chef-mikeio.png",
+      "imageHint": "chef mustache"
+    }
+  ]
+}
